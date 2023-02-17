@@ -1,21 +1,8 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 Scanner sc = new Scanner(System.in);
-//System.out.println("Выберите операцию, которую хотите выполнить:");
-      //  System.out.println("Введите 1, если сложение");
-       // System.out.println("Введите 2, если вычитание");
-       // System.out.println("Введите 3, если умножение");
-       // System.out.println("Введите 4, если деление");
-       // int operation = sc.nextInt();
-
-//if(firstDownDigit == secondDownDigit){
-  //   x = firstUpDigit + secondUpDigit;
-    //}
-//else {
-    //Drob.commonDown(3, 4);
-  //  System.out.println("Ок");
-//}
 Drob defaultDrob = new Drob();
     defaultDrob.setDenomenator(1);
     int defaultNum = defaultDrob.getNumerator();
@@ -23,17 +10,44 @@ Drob defaultDrob = new Drob();
     int defaultDem = defaultDrob.getDenomenator();
 Drob firstDrob = new Drob();
     System.out.println("Введите числитель первой дроби");
-        firstDrob.setNumerator(sc.nextInt());
+        try{
+            firstDrob.setNumerator(sc.nextInt());
+        }
+        catch (InputMismatchException e){
+            System.out.println("Введите число");
+            System.exit (1);
+        }
         int num1 = firstDrob.getNumerator();
     System.out.println("Введите знаменатель первой дроби");
-        firstDrob.setDenomenator(sc.nextInt());
+        try {
+            firstDrob.setDenomenator(sc.nextInt());
+        }
+        catch (InputMismatchException e)
+        {
+            System.out.println("Введите число");
+            System.exit (1);
+        }
         int den1 = firstDrob.getDenomenator();
 Drob secondDrob = new Drob();
     System.out.println("Введите числитель второй дроби");
-            secondDrob.setNumerator(sc.nextInt());
+           try {
+               secondDrob.setNumerator(sc.nextInt());
+           }
+           catch (InputMismatchException e)
+           {
+               System.out.println("Введите число");
+               System.exit (1);
+           }
             int num2 = secondDrob.getNumerator();
         System.out.println("Введите знаменатель второй дроби");
-            secondDrob.setDenomenator(sc.nextInt());
+            try {
+                secondDrob.setDenomenator(sc.nextInt());
+            }
+            catch (InputMismatchException e)
+            {
+                System.out.println("Введите число");
+                System.exit (1);
+            }
             int den2 = secondDrob.getDenomenator();
             Drob lastDrob = new Drob();
             System.out.println("Выберите операцию, которую хотите выполнить:");
@@ -41,7 +55,13 @@ Drob secondDrob = new Drob();
             System.out.println("Введите 2, если вычитание");
             System.out.println("Введите 3, если умножение");
             System.out.println("Введите 4, если деление");
-            int operation = sc.nextInt();
+            int operation = 0;
+            try {
+                 operation = sc.nextInt();
+            }catch (InputMismatchException e)
+            {
+                System.out.println("Введите число");
+            }
         if(operation == 1){
         if(den1 == den2) {
             lastDrob.setTheSameDenom(den2);
@@ -74,14 +94,4 @@ Drob secondDrob = new Drob();
         }
         sc.close();
         }
-        /*else {
-commonDenom = firstDrob.denomenator* secondDrob.denomenator;
-firstDrob.numerator = firstDrob.numerator* secondDrob.denomenator;
-secondDrob.numerator = secondDrob.numerator* firstDrob.denomenator;
-commonNum = firstDrob.numerator + secondDrob.numerator;
-System.out.println(commonNum + "/" + commonDenom);
-        }
-                 System.out.println(defaultDrob.numerator + "/" + defaultDrob.denomenator);*/
-
-
     }

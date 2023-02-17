@@ -2,7 +2,13 @@ public class Drob {
      private int numerator;
     private int denomenator;
     public void setDenomenator(int denomenator){
-        this.denomenator = denomenator;
+        if(denomenator == 0){
+            System.out.println("Знаменатель не может равняться 0");
+            System.exit (1);
+        }
+        else {
+            this.denomenator = denomenator;
+        }
     }
     public void setNumerator(int numerator) {
         this.numerator = numerator;
