@@ -65,32 +65,36 @@ Drob secondDrob = new Drob();
         if(operation == 1){
         if(den1 == den2) {
             lastDrob.setTheSameDenom(den2);
-            lastDrob.setTheSameNumPLus(num1, num2);
+            lastDrob.setTheSameNumPLus(firstDrob, secondDrob);
             lastDrob.print();
         }
           else{
-        lastDrob.setCommonDenom(den1, den2);
-        lastDrob.setCommonNumPlus(num1, num2, den1, den2);
+        lastDrob.setCommonDenom(firstDrob, secondDrob);
+        lastDrob.setCommonNumPlus(firstDrob, secondDrob);
         lastDrob.print();
         }}
         else if(operation == 2){
             if(den1 == den2){
                 lastDrob.setTheSameDenom(den2);
-                lastDrob.setTheSameNumMinus(num1, num2);
-                lastDrob.print();}
+                lastDrob.setTheSameNumMinus(firstDrob, secondDrob);
+                lastDrob.print1();}
                 else{
-                lastDrob.setCommonDenom(den1, den2);
-                lastDrob.setCommonNumMinus(num1, num2, den1, den2);
+                lastDrob.setCommonDenom(firstDrob, secondDrob);
+                lastDrob.setCommonNumMinus(firstDrob, secondDrob);
                 lastDrob.print();
             }
             }
         else if(operation == 3){
-            lastDrob.setMultiplying(den1, den2, num1, num2);
+            lastDrob.setMultiplying(firstDrob, secondDrob);
             lastDrob.print();
         }
         else if(operation == 4){
-            lastDrob.setDivision(den1, den2, num1, num2);
+            lastDrob.setDivision(firstDrob, secondDrob);
             lastDrob.print();
+        }
+        else if(operation!=1&&operation!=2&&operation!=3&&operation!=4){
+            System.out.println("Введите число от 1 до 4");
+            System.exit (1);
         }
         sc.close();
         }

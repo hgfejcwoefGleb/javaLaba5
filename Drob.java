@@ -1,6 +1,7 @@
 public class Drob {
      private int numerator;
     private int denomenator;
+    public double result;
     public void setDenomenator(int denomenator){
         if(denomenator == 0){
             System.out.println("Знаменатель не может равняться 0");
@@ -19,34 +20,37 @@ public int getNumerator(){
 public int getDenomenator() {
         return denomenator;
     }
-public void setTheSameNumPLus(int num1, int num2){
-        this.numerator = num1 + num2;
+public void setTheSameNumPLus(Drob first, Drob second){
+        this.numerator = first.getNumerator()+ second.getNumerator();
 }
-public void setCommonNumPlus(int num1, int den1, int num2, int den2){
-        this.numerator = num1*den2 + num2*den1;
+public void setCommonNumPlus(Drob first, Drob second){
+        this.numerator = first.getNumerator() * second.getDenomenator() + second.getNumerator()* first.getDenomenator();
 }
-    public void setCommonNumMinus(int num1, int den1, int num2, int den2){
-        this.numerator = num1*den2 - num2*den1;
+    public void setCommonNumMinus(Drob first, Drob second){
+        this.numerator = (first.getNumerator() * second.getDenomenator()) - (first.getDenomenator()* second.getNumerator());
     }
 public void print(){
         System.out.println(numerator + "/" + denomenator);
 }
+    public void print1(){
+        System.out.println(result);
+    }
    public void setTheSameDenom(int denom){
         this.denomenator = denom;
    }
-    public void setTheSameNumMinus(int num1, int num2){
-        this.numerator = num1 - num2;
+    public void setTheSameNumMinus(Drob first, Drob second){
+        this.numerator = first.getNumerator() - second.getNumerator();
     }
-    public void setCommonDenom(int denomenator1, int denomerator2 ){
-        this.denomenator = denomenator1*denomerator2;
+    public void setCommonDenom(Drob first, Drob second){
+        this.denomenator = first.getDenomenator() * second.getDenomenator();
 
     }
-    public void setMultiplying(int den1, int den2, int num1, int num2){
-        this.denomenator = den1*den2;
-        this.numerator = num1*num2;
+    public void setMultiplying(Drob first, Drob second ){
+        this.numerator = (first.getNumerator() * second.getNumerator());
+        this.denomenator = (first.getDenomenator() * second.getDenomenator());
     }
-    public void setDivision(int den1, int den2, int num1, int num2){
-        this.denomenator = den1*num2;
-        this.numerator = num1*den2;
+    public void setDivision(Drob first, Drob second){
+        this.numerator = (first.getNumerator()* second.getDenomenator());
+        this.denomenator = (first.getDenomenator()* second.getNumerator());
     }
 }
